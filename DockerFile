@@ -1,0 +1,10 @@
+# Dockerfile
+FROM ubuntu:latest
+RUN apt-get update -y
+RUN apt-get install -y python-pip python-dev build-essential
+COPY . /app
+WORKDIR /app
+RUN pip install -r environ/requirements.txt
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+#  docker run --priveleged -v${pwd}:/ -m 8g 452a96d81c30
